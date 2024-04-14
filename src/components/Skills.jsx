@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import '../App.scss';
 
 function Skills({ skills }) {
-  console.log(skills);
 
   return (
     <div className="skills" >

@@ -97,7 +97,7 @@ function Home() {
             <Hero about={about}/>
             {/* <About  /> */}
             <Skills skills={sortedFilteredSkills}/>
-            <Projects />
+            <Projects projects={sortedFilteredProject} />
             <Services />
             <Timeline />
             <Testimonial />
