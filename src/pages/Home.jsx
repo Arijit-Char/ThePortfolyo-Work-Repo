@@ -6,9 +6,11 @@ import About from '../components/About';
 import Services from '../components/Services';
 import Skills from '../components/Skills';
 import Projects from '../components/Projects';
-import Timeline from '../components/Timeline';
+// import Timeline from '../components/Timeline';
 import Testimonial from '../components/Testimonial';
 import Contact from '../components/Contact';
+import Timelines from '../components/Timeline';
+import EducationTimeline from '../components/Timeline';
 function Home() {
     const params = useParams();
     const navigate = useNavigate();
@@ -79,7 +81,6 @@ function Home() {
         }
     };
 
-   
     const sortedFilteredSkills = user?.skills?.filter((item) => item.enabled)?.sort((a, b) => a.sequence - b.sequence);
     const sortedFilteredProject = user?.projects?.filter((item) => item.enabled)?.sort((a, b) => a.sequence - b.sequence);
     const filteredServices = user?.services?.filter((item) => item.enabled);
@@ -94,12 +95,12 @@ function Home() {
     return (
         <>
             <Header about={about} />
-            <Hero about={about}/>
+            <Hero about={about} />
             {/* <About  /> */}
-            <Skills skills={sortedFilteredSkills}/>
+            <Skills skills={sortedFilteredSkills} />
             <Projects projects={sortedFilteredProject} />
             <Services services={filteredServices} />
-            <Timeline education={filteredEducation} experience={filteredExperience}/>
+            <Timelines education={filteredEducation} experience={filteredExperience} />
             <Testimonial />
             <Contact />
         </>

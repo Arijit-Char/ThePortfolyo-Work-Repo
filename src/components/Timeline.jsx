@@ -1,73 +1,48 @@
 import React, { useEffect, useRef, useState } from 'react';
-
 import TimelineObserver from 'react-timeline-animation';
 import { fireConfetti } from './confetti';
-
 import '../App.scss';
 
-const Timeline = ({ setObserver, callback }) => {
-    const [message1, setMessage1] = useState('');
-    const [message2, setMessage2] = useState('');
-    const [message3, setMessage3] = useState('');
+const Timeline = ({ education, setObserver, callback }) => {
+  console.log(education);
+    const size = education.length;
+    const [messages, setMessages] = useState(Array(size).fill(''));
 
-    const timeline1 = useRef(null);
-    const timeline2 = useRef(null);
-    const timeline3 = useRef(null);
-    const circle1 = useRef(null);
-    const circle2 = useRef(null);
-    const circle3 = useRef(null);
-
-    const someCallback = () => {
-        setMessage1('Step one');
-        callback();
-    };
-
-    const someCallback2 = () => {
-        setMessage2('Step two');
-    };
-
-    const someCallback3 = () => {
-        setMessage3('Finish');
-        fireConfetti();
-    };
+    const timelines = Array.from({ length: size }, (_, index) => useRef(null));
+    const circles = Array.from({ length: size }, (_, index) => useRef(null));
 
     useEffect(() => {
-        setObserver(timeline1.current);
-        setObserver(timeline2.current);
-        setObserver(timeline3.current);
-        setObserver(circle1.current, someCallback);
-        setObserver(circle2.current, someCallback2);
-        setObserver(circle3.current, someCallback3);
+        const someCallbacks = education.map((item, index) => () => {
+            setMessages((prevMessages) => {
+                const updatedMessages = [...prevMessages];
+                updatedMessages[index] = `Step ${index + 1}: ${item.company_name}`;
+                return updatedMessages;
+            });
+            callback();
+        });
+
+        timelines.forEach((timelineRef, index) => setObserver(timelineRef.current));
+        circles.forEach((circleRef, index) => setObserver(circleRef.current, someCallbacks[index]));
     }, []);
 
     return (
-        <div className="wrTimelineer">
-            <div id="timeline1" ref={timeline1} className="timeline" />
-            <div className="circleWrTimelineer">
-                <div id="circle1" ref={circle1} className="circle">
-                    1
-                </div>
-                <div className="message">{message1}</div>
-            </div>
-            <div id="timeline2" ref={timeline2} className="timeline" />
-            <div className="circleWrTimelineer">
-                <div id="circle2" ref={circle2} className="circle">
-                    2
-                </div>
-                <div className="message">{message2}</div>
-            </div>
-            <div id="timeline3" ref={timeline3} className="timeline" />
-            <div className="circleWrTimelineer">
-                <div id="circle3" ref={circle3} className="circle">
-                    3
-                </div>
-                <div className="message">{message3}</div>
-            </div>
+        <div className="wrapper">
+            {education.map((item, index) => (
+                <React.Fragment key={item._id}>
+                    <div id={`timeline${index + 1}`} ref={timelines[index]} className="timeline" />
+                    <div className="circleWrapper">
+                        <div id={`circle${index + 1}`} ref={circles[index]} className="circle">
+                            {index + 1}
+                        </div>
+                        <div className="message">{messages[index]}</div>
+                    </div>
+                </React.Fragment>
+            ))}
         </div>
     );
 };
 
-export default function Timelines({ education, experience }) {
+const Timelines = ({ education }) => {
     const [message, setMessage] = useState('');
 
     const onCallback = () => {
@@ -76,14 +51,16 @@ export default function Timelines({ education, experience }) {
 
     return (
         <div className="Timelines">
-            <h1>react-scroll-animation component</h1>
+            <h1>Education Timelines</h1>
             <div className="stub1">⬇️ scroll to start ⬇️</div>
             <TimelineObserver
                 initialColor="#e5e5e5"
                 fillColor="black"
-                handleObserve={(setObserver) => <Timeline callback={onCallback} className="timeline" setObserver={setObserver} />}
+                handleObserve={(setObserver) => <Timeline education={education} callback={onCallback} setObserver={setObserver} />}
             />
             <div className="stub2">{message}</div>
         </div>
     );
-}
+};
+
+export default Timelines;
