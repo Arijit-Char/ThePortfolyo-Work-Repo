@@ -4,7 +4,6 @@ import { fireConfetti } from './confetti';
 import '../App.scss';
 
 const Timeline = ({ education, setObserver, callback }) => {
-    console.log(education);
     const size = education.length;
     const [messages, setMessages] = useState(Array(size).fill(''));
 
@@ -15,10 +14,9 @@ const Timeline = ({ education, setObserver, callback }) => {
         const someCallbacks = education.map((item, index) => () => {
             setMessages((prevMessages) => {
                 const updatedMessages = [...prevMessages];
-                updatedMessages[index] = `Step ${index + 1}: ${item.company_name}`;
+                updatedMessages[index] = `Step ${index + 1}: ${item.jobTitle} at ${item.company_name}`;
                 return updatedMessages;
             });
-            fireConfetti();
             callback();
         });
 
@@ -35,7 +33,17 @@ const Timeline = ({ education, setObserver, callback }) => {
                         <div id={`circle${index + 1}`} ref={circles[index]} className="circle">
                             {index + 1}
                         </div>
-                        <div className="message">{messages[index]}</div>
+                        <div className="message">
+                            <p>{messages[index]}</p>
+                            <p>{item.summary}</p>
+                            <p>{`Location: ${item.jobLocation}`}</p>
+                            <p>{`Duration: ${item.startDate} to ${item.endDate}`}</p>
+                            <ul>
+                                {item.bulletPoints.map((point, idx) => (
+                                    <li key={idx}>{point}</li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
                 </React.Fragment>
             ))}
@@ -57,7 +65,9 @@ const Timelines = ({ education }) => {
             <TimelineObserver
                 initialColor="#e5e5e5"
                 fillColor="black"
-                handleObserve={(setObserver) => <Timeline education={education} callback={onCallback} setObserver={setObserver} />}
+                handleObserve={(setObserver) => (
+                    <Timeline education={education} callback={onCallback} setObserver={setObserver} />
+                )}
             />
             <div className="stub2">{message}</div>
         </div>

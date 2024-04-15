@@ -342,4 +342,76 @@
     min-width: 150px;
     font-weight: bold;
 }
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 
+    .circleWrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(31, 41, 55, 0.8); /* Dark blue background */
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            font-size: 1.2rem;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background-color: rgba(31, 41, 55, 1); /* Darker blue on hover */
+                transform: scale(1.1);
+            }
+        }
+
+        .message {
+            position: absolute;
+            top: -120px; /* Adjust this value as needed */
+            left: 60px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* White background with opacity */
+            border-radius: 10px;
+            color: rgba(31, 41, 55, 1); /* Dark blue text color */
+            width: 300px;
+            font-size: 1rem; /* Adjust font size */
+            line-height: 1.5; /* Adjust line height */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+
+            p {
+                margin-bottom: 10px;
+                font-weight: bold;
+                color: rgba(31, 41, 55, 1); /* Dark blue text color */
+            }
+
+            ul {
+                margin-top: 10px;
+                padding-left: 20px;
+                list-style: none;
+
+                li {
+                    margin-bottom: 5px;
+                    color: rgba(31, 41, 55, 1); /* Dark blue text color */
+                }
+            }
+        }
+
+        &:hover {
+            .message {
+                opacity: 1;
+            }
+        }
+    }
+}
