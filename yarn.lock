@@ -702,6 +702,11 @@ caniuse-lite@^1.0.30001587, caniuse-lite@^1.0.30001599:
   resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001607.tgz"
   integrity sha512-WcvhVRjXLKFB/kmOFVwELtMxyhq3iM/MvmXcyCe2PNf166c39mptscOc/45TTS96n2gpNV2z7+NakArTWZCQ3w==
 
+canvas-confetti@^1.9.2:
+  version "1.9.2"
+  resolved "https://registry.npmjs.org/canvas-confetti/-/canvas-confetti-1.9.2.tgz"
+  integrity sha512-6Xi7aHHzKwxZsem4mCKoqP6YwUG3HamaHHAlz1hTNQPCqXhARFpSXnkC9TWlahHY5CG6hSL5XexNjxK8irVErg==
+
 chalk@^2.4.2:
   version "2.4.2"
   resolved "https://registry.npmjs.org/chalk/-/chalk-2.4.2.tgz"
@@ -2341,6 +2346,11 @@ react-router@6.22.3:
   integrity sha512-dr2eb3Mj5zK2YISHK++foM9w4eBnO23eKnZEDs7c880P6oKbrjz/Svg9+nxqtHQK+oMW4OtjZca0RqPglXxguQ==
   dependencies:
     "@remix-run/router" "1.15.3"
+
+react-timeline-animation@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.npmjs.org/react-timeline-animation/-/react-timeline-animation-1.2.3.tgz"
+  integrity sha512-xc5LXn4l/RWLq7X7Y9nhcKWTpfvDEhrW7GZfIdxcEXkpYH//Utc95dLEkMSuK0CocYnG5Cb4DE2fh9rsv/D7og==
 
 react-ui-animate@^2.0.0:
   version "2.0.0"

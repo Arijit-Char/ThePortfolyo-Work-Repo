@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import '../App.scss';
 
 function Services({ services }) {
-    console.log(services);
 
     return (
         <div className="services">
@@ -20,7 +19,9 @@ function Services({ services }) {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.1 }}
                     >
-                        <img src={service.image.url} alt={service.name} />
+                        <div className="service-image">
+                            <img src={service.image.url} alt={service.name} />
+                        </div>
                         <div className="service-details">
                             <h3>{service.name}</h3>
                             <p>{service.desc}</p>

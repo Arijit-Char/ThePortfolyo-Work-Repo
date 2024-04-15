@@ -99,7 +99,7 @@ function Home() {
             <Skills skills={sortedFilteredSkills}/>
             <Projects projects={sortedFilteredProject} />
             <Services services={filteredServices} />
-            <Timeline />
+            <Timeline education={filteredEducation} experience={filteredExperience}/>
             <Testimonial />
             <Contact />
         </>
