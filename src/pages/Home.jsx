@@ -98,7 +98,7 @@ function Home() {
             {/* <About  /> */}
             <Skills skills={sortedFilteredSkills}/>
             <Projects projects={sortedFilteredProject} />
-            <Services />
+            <Services services={filteredServices} />
             <Timeline />
             <Testimonial />
             <Contact />
