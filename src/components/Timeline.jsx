@@ -4,7 +4,7 @@ import { fireConfetti } from './confetti';
 import '../App.scss';
 
 const Timeline = ({ education, setObserver, callback }) => {
-  console.log(education);
+    console.log(education);
     const size = education.length;
     const [messages, setMessages] = useState(Array(size).fill(''));
 
@@ -18,6 +18,7 @@ const Timeline = ({ education, setObserver, callback }) => {
                 updatedMessages[index] = `Step ${index + 1}: ${item.company_name}`;
                 return updatedMessages;
             });
+            fireConfetti();
             callback();
         });
 
