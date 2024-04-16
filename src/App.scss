@@ -384,10 +384,10 @@
             border-radius: 10px;
             color: rgba(31, 41, 55, 1); /* Dark blue text color */
             width: 300px;
-            font-size: 1rem; /* Adjust font size */
+            font-size: 0.55rem; /* Adjust font size */
             line-height: 1.5; /* Adjust line height */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            opacity: 0;
+            opacity: 1;
             transition: opacity 0.3s ease;
 
             p {

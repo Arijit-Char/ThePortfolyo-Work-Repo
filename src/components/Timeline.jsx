@@ -14,9 +14,10 @@ const Timeline = ({ education, setObserver, callback }) => {
         const someCallbacks = education.map((item, index) => () => {
             setMessages((prevMessages) => {
                 const updatedMessages = [...prevMessages];
-                updatedMessages[index] = `Step ${index + 1}: ${item.jobTitle} at ${item.company_name}`;
+                updatedMessages[index] = ` ${index + 1}: ${item.jobTitle} at ${item.company_name}`;
                 return updatedMessages;
             });
+            fireConfetti();
             callback();
         });
 
@@ -51,7 +52,7 @@ const Timeline = ({ education, setObserver, callback }) => {
     );
 };
 
-const Timelines = ({ education }) => {
+const Timelines = ({ education, experience }) => {
     const [message, setMessage] = useState('');
 
     const onCallback = () => {
@@ -60,16 +61,22 @@ const Timelines = ({ education }) => {
 
     return (
         <div className="Timelines">
-            <h1>Education Timelines</h1>
-            <div className="stub1">⬇️ scroll to start ⬇️</div>
+            <div className="stub1">⬇️ Education ⬇️</div>
             <TimelineObserver
                 initialColor="#e5e5e5"
                 fillColor="black"
-                handleObserve={(setObserver) => (
-                    <Timeline education={education} callback={onCallback} setObserver={setObserver} />
-                )}
+                handleObserve={(setObserver) => <Timeline education={education} callback={onCallback} setObserver={setObserver} />}
             />
-            <div className="stub2">{message}</div>
+            <br />
+            <br />
+            <br />
+
+            <div className="stub1">⬇️ Experience ⬇️</div>
+            <TimelineObserver
+                initialColor="#e5e5e5"
+                fillColor="black"
+                handleObserve={(setObserver) => <Timeline education={experience} callback={onCallback} setObserver={setObserver} />}
+            />
         </div>
     );
 };
