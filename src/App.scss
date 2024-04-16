@@ -4,6 +4,10 @@
     box-sizing: border-box;
     font-family: 'Arial';
 }
+
+body {
+    background-color: #f4f4f4;
+}
 /* Header */
 .header {
     height: 20vh;
@@ -360,7 +364,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: rgba(31, 41, 55, 0.8); /* Dark blue background */
+            background-color: rgba(31, 41, 55, 0.8);
             border: 2px solid rgba(255, 255, 255, 0.5);
             font-size: 1.2rem;
             color: white;
@@ -370,22 +374,22 @@
             transition: all 0.3s ease;
 
             &:hover {
-                background-color: rgba(31, 41, 55, 1); /* Darker blue on hover */
+                background-color: rgba(31, 41, 55, 1);
                 transform: scale(1.1);
             }
         }
 
         .message {
             position: absolute;
-            top: -120px; /* Adjust this value as needed */
+            top: -120px;
             left: 60px;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9); /* White background with opacity */
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
-            color: rgba(31, 41, 55, 1); /* Dark blue text color */
+            color: rgba(31, 41, 55, 1);
             width: 300px;
-            font-size: 0.55rem; /* Adjust font size */
-            line-height: 1.5; /* Adjust line height */
+            font-size: 0.55rem;
+            line-height: 1.5;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             opacity: 1;
             transition: opacity 0.3s ease;
@@ -393,7 +397,7 @@
             p {
                 margin-bottom: 10px;
                 font-weight: bold;
-                color: rgba(31, 41, 55, 1); /* Dark blue text color */
+                color: rgba(31, 41, 55, 1);
             }
 
             ul {
@@ -403,7 +407,7 @@
 
                 li {
                     margin-bottom: 5px;
-                    color: rgba(31, 41, 55, 1); /* Dark blue text color */
+                    color: rgba(31, 41, 55, 1);
                 }
             }
         }
@@ -413,5 +417,127 @@
                 opacity: 1;
             }
         }
+    }
+}
+//Testimonial
+
+.info {
+    background-color: thistle;
+    color: rgb(165, 108, 108);
+    font-family: 'Roboto';
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    top: 30px;
+    left: 0;
+    z-index: 200;
+}
+h2.project {
+    font-weight: 700;
+    font-size: 25px;
+}
+p.challenge {
+    font-weight: 400;
+    font-size: 20px;
+}
+.tools {
+    font-weight: 100;
+    font-size: 18px;
+}
+.author {
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.title {
+    font-size: 50px;
+    font-weight: 700;
+    color: thistle;
+}
+.testimonials-container {
+    background-color: #94404f;
+    color: wheat;
+    border-radius: 15px;
+    margin: 20px auto;
+    padding: 50px 80px;
+    max-width: 768px;
+    position: relative;
+    margin-top: 15rem;
+}
+
+i {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 38px;
+    position: absolute;
+    top: 70px;
+}
+.fa-quote-right {
+    left: 30px;
+}
+.fa-quote-left {
+    right: 35px;
+}
+
+.testimonial {
+    padding: 25px 0;
+    line-height: 25px;
+    text-align: justify;
+}
+
+.user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user .user-image {
+    border: solid 2px wheat;
+    border-radius: 50%;
+    height: 95px;
+    width: 95px;
+    object-fit: cover;
+}
+.user .user-details {
+    margin-left: 10px;
+}
+.user .username {
+    margin: 0;
+}
+.user .role {
+    font-weight: normal;
+    margin: 10px 0;
+}
+
+.progress-bar {
+    background-color: wheat;
+    height: 3px;
+    width: 100%;
+    animation: grow 10s linear infinite;
+    transform-origin: left;
+}
+@keyframes grow {
+    0% {
+        transform: scaleX(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonial-container {
+        padding: 20px 30px;
+    }
+
+    .fa-quote {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .title {
+        font-size: 40px;
+        font-weight: 700;
+        margin-top: 130px;
     }
 }

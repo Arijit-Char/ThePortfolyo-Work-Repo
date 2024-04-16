@@ -101,7 +101,7 @@ function Home() {
             <Projects projects={sortedFilteredProject} />
             <Services services={filteredServices} />
             <Timelines education={filteredEducation} experience={filteredExperience} />
-            <Testimonial />
+            <Testimonial testimonial={filteredTestimonials}/>
             <Contact />
         </>
     );
