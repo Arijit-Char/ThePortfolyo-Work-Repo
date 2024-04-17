@@ -102,7 +102,7 @@ function Home() {
             <Services services={filteredServices} />
             <Timelines education={filteredEducation} experience={filteredExperience} />
             <Testimonial testimonial={filteredTestimonials}/>
-            <Contact />
+            <Contact contact={filteredSocialHandles} />
         </>
     );
 }
