@@ -7,7 +7,9 @@
         display: none;
     }
 }
-
+html{
+    scroll-behavior: smooth;
+}
 body {
     background: rgb(63, 94, 251);
     background: -moz-radial-gradient(
@@ -44,6 +46,9 @@ body {
     background-color: rgba(0, 0, 0, 0.9);
     z-index: 999;
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     ul {
         list-style: none;
@@ -51,15 +56,11 @@ body {
 
         li {
             padding: 15px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 24px;
             color: #ffffff;
             cursor: pointer;
             text-align: center;
-
-            &:last-child {
-                border-bottom: none;
-            }
+            transition: background-color 0.3s;
 
             &:hover {
                 background-color: rgba(255, 255, 255, 0.1);

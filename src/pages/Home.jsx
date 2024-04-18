@@ -94,15 +94,38 @@ function Home() {
     }
     return (
         <>
-            <Header about={about} />
-            <Hero about={about} />
-            {/* <About  /> */}
-            <Skills skills={sortedFilteredSkills} />
-            <Projects projects={sortedFilteredProject} />
-            <Services services={filteredServices} />
-            <Timelines education={filteredEducation} experience={filteredExperience} />
-            <Testimonial testimonial={filteredTestimonials} />
-            <Contact contact={filteredSocialHandles} />
+            <section id="hero"></section>
+            <section>
+                {' '}
+                <Header about={about} />
+            </section>
+            <section>
+                {' '}
+                <Hero about={about} />
+            </section>
+            <section id="skills">
+                <Skills skills={sortedFilteredSkills} />
+            </section>
+            <section id="projects">
+                <Projects projects={sortedFilteredProject} />
+            </section>
+            <section id="services">
+                {' '}
+                <Services services={filteredServices} />
+            </section>
+            <section id="timeline">
+                {' '}
+                <Timelines education={filteredEducation} experience={filteredExperience} />
+            </section>
+            <section id="testimonial">  
+                {' '}
+                <Testimonial testimonial={filteredTestimonials} />
+            </section>
+            <section id="contact">
+                {' '}
+                <Contact contact={filteredSocialHandles} />
+            </section>
+
             <hr />
             <br />
             <p style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Copyright &copy; ThePortfolyo </p>

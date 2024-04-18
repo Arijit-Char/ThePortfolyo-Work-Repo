@@ -9,8 +9,8 @@ function Projects({ projects }) {
         setShowMore(!showMore);
     };
     const projectsContainerStyle = {
-      height: showMore ? '340vh' : 'auto',
-  };
+        height: showMore ? '340vh' : 'auto',
+    };
     return (
         <div className="projects" style={projectsContainerStyle}>
             <h2 className="projects-heading">Projects</h2>

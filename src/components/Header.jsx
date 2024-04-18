@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScroll, useAnimatedValue, AnimatedBlock, interpolate } from 'react-ui-animate';
 import { IoMdMenu } from 'react-icons/io';
+import { Divide, Divide as Hamburger } from 'hamburger-react';
 import '../App.scss';
 
 export default function Header({ about }) {
@@ -22,33 +23,6 @@ export default function Header({ about }) {
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
-    };
-
-    const menuVariants = {
-        hidden: {
-            x: '100%',
-            opacity: 0,
-        },
-        visible: {
-            x: 0,
-            opacity: 1,
-            transition: {
-                type: 'spring',
-                stiffness: 100,
-                damping: 20,
-                duration: 0.5,
-            },
-        },
-        exit: {
-            x: '100%',
-            opacity: 0,
-            transition: {
-                type: 'spring',
-                stiffness: 100,
-                damping: 20,
-                duration: 0.5,
-            },
-        },
     };
 
     return (
@@ -91,18 +65,49 @@ export default function Header({ about }) {
                 </div>
 
                 <div style={{ color: '#ffffff', cursor: 'pointer' }} onClick={toggleMenu}>
-                    <IoMdMenu size={30} />
+                    <Divide color="black" size={30} />
                 </div>
             </AnimatedBlock>
 
             <AnimatePresence>
                 {isMenuOpen && (
-                    <motion.div className="menu" variants={menuVariants} initial="hidden" animate="visible" exit="exit">
-                        <ul style={{ marginTop: '15rem' }}>
-                            <li>Menu Item 1</li>
-                            <li>Menu Item 2</li>
-                            <li>Menu Item 3</li>
-                            {/* Add more menu items as needed */}
+                    <motion.div className="menu" initial={{ x: '100%', opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: '100%', opacity: 0 }}>
+                        <ul style={{ paddingTop: '5rem' }}>
+                            <li onClick={toggleMenu}>
+                                <a href="#hero" spy={true} smooth={true}>
+                                    Home
+                                </a>
+                            </li>
+                            <li onClick={toggleMenu}>
+                                <a href="#projects" spy={true} smooth={true}>
+                                    Projects
+                                </a>
+                            </li>
+                            <li onClick={toggleMenu}>
+                                <a href="#services" spy={true} smooth={true}>
+                                    Services
+                                </a>
+                            </li>
+                            <li onClick={toggleMenu}>
+                                <a href="#skills" spy={true} smooth={true}>
+                                    Skills
+                                </a>
+                            </li>
+                            <li onClick={toggleMenu}>
+                                <a href="#timeline" spy={true} smooth={true}>
+                                    Education & Experience
+                                </a>
+                            </li>
+                            <li onClick={toggleMenu}>
+                                <a href="#testimonial" spy={true} smooth={true}>
+                                    Testimonial
+                                </a>
+                            </li>
+                            <li onClick={toggleMenu}>
+                                <a href="#contact" spy={true} smooth={true}>
+                                    Contact Me
+                                </a>
+                            </li>
                         </ul>
                     </motion.div>
                 )}
