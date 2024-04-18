@@ -9,20 +9,58 @@
 }
 
 body {
-    background-color: #f4f4f4;
+    background: rgb(63, 94, 251);
+    background: -moz-radial-gradient(
+        circle,
+        rgba(63, 94, 251, 0.510329131652661) 3%,
+        rgba(63, 94, 251, 0.17699579831932777) 52%,
+        rgba(252, 70, 107, 0.3254551820728291) 100%
+    );
+    background: -webkit-radial-gradient(
+        circle,
+        rgba(63, 94, 251, 0.510329131652661) 3%,
+        rgba(63, 94, 251, 0.17699579831932777) 52%,
+        rgba(252, 70, 107, 0.3254551820728291) 100%
+    );
+    background: radial-gradient(
+        circle,
+        rgba(63, 94, 251, 0.510329131652661) 3%,
+        rgba(63, 94, 251, 0.17699579831932777) 52%,
+        rgba(252, 70, 107, 0.3254551820728291) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3f5efb",endColorstr="#fc466b",GradientType=1);
 }
 /* Header */
 .header {
     height: 20vh;
-    margin-bottom: 1rem;
+    margin-bottom: -0.3rem;
 }
 
 /* Hero */
 
 .hero {
     height: 80vh;
-    background-color: #f0f0f0;
     padding: 50px 0;
+    background: rgb(63, 94, 251);
+    background: -moz-radial-gradient(
+        circle,
+        rgba(63, 94, 251, 0.510329131652661) 3%,
+        rgba(63, 94, 251, 0.17699579831932777) 52%,
+        rgba(252, 70, 107, 0.0985644257703081) 100%
+    );
+    background: -webkit-radial-gradient(
+        circle,
+        rgba(63, 94, 251, 0.510329131652661) 3%,
+        rgba(63, 94, 251, 0.17699579831932777) 52%,
+        rgba(252, 70, 107, 0.0985644257703081) 100%
+    );
+    background: radial-gradient(
+        circle,
+        rgba(63, 94, 251, 0.510329131652661) 3%,
+        rgba(63, 94, 251, 0.17699579831932777) 52%,
+        rgba(252, 70, 107, 0.0985644257703081) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3f5efb",endColorstr="#fc466b",GradientType=1);
 }
 
 .hero-content {
@@ -145,6 +183,7 @@ body {
         overflow: hidden;
         cursor: pointer;
         transition: transform 0.3s ease;
+        background-color: #f0f0f0;
 
         img {
             width: 100%;
@@ -209,7 +248,7 @@ body {
         display: block;
         margin: 20px auto;
         padding: 10px 20px;
-        background-color: #007bff;
+        background-color: #94404f;
         color: #fff;
         border: none;
         border-radius: 5px;
@@ -254,6 +293,7 @@ body {
         overflow: hidden;
         cursor: pointer;
         transition: transform 0.3s ease;
+        background-color: #f0f0f0;
 
         &:hover {
             transform: translateY(-5px);
@@ -616,7 +656,7 @@ i {
     justify-content: center !important;
     gap: 50px;
     margin-left: 10vw;
-    padding-top: 6rem;
+    padding-top: 3rem;
 
     .formCont {
         display: 1;

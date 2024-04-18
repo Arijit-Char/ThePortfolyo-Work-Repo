@@ -101,11 +101,11 @@ function Home() {
             <Projects projects={sortedFilteredProject} />
             <Services services={filteredServices} />
             <Timelines education={filteredEducation} experience={filteredExperience} />
-            <Testimonial testimonial={filteredTestimonials}/>
+            <Testimonial testimonial={filteredTestimonials} />
             <Contact contact={filteredSocialHandles} />
             <hr />
             <br />
-            <p style={{display:"flex",alignItems:"center",justifyContent:"center"}}>Copyright &copy; ThePortfolyo </p>
+            <p style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Copyright &copy; ThePortfolyo </p>
             <br />
             <hr />
         </>

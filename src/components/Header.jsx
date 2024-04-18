@@ -19,16 +19,18 @@ export default function Header({ about }) {
     return (
         <div className="header">
             <AnimatedBlock
-                style={{
-                    backgroundColor: '#ffffff',
-                    display: 'flex',
-                    alignItems: 'center',
-                    padding: 20,
-                    position: 'fixed',
-                    width: '100%',
-                    boxShadow,
-                    zIndex: 1000,
-                }}
+              style={{
+                backgroundColor: 'rgb(131,58,180)',
+                backgroundImage: 'linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 55%, rgba(252,176,69,1) 100%)',
+                display: 'flex',
+                alignItems: 'center',
+                padding: 20,
+                position: 'fixed',
+                width: '100%',
+                boxShadow,
+                zIndex: 1000,
+            }}
+            
             >
                 <AnimatedBlock
                     style={{
