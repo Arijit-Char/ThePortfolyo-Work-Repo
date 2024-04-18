@@ -103,6 +103,11 @@ function Home() {
             <Timelines education={filteredEducation} experience={filteredExperience} />
             <Testimonial testimonial={filteredTestimonials}/>
             <Contact contact={filteredSocialHandles} />
+            <hr />
+            <br />
+            <p style={{display:"flex",alignItems:"center",justifyContent:"center"}}>Copyright &copy; ThePortfolyo </p>
+            <br />
+            <hr />
         </>
     );
 }
