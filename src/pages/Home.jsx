@@ -121,14 +121,16 @@ function Home() {
                 {' '}
                 <Testimonial testimonial={filteredTestimonials} />
             </section>
-            <section id="contact">
+            <section>
                 {' '}
                 <Contact contact={filteredSocialHandles} />
             </section>
-
+            <section id="contact">
+                {' '}
+            </section>
             <hr />
             <br />
-            <p style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>Copyright &copy; ThePortfolyo </p>
+            <p style={{ display: 'flex', alignItems: 'center', justifyContent: 'center',fontWeight:"800",color:"#a2790d"}}>Copyright &copy; ThePortfolyo </p>
             <br />
             <hr />
         </>

@@ -9,7 +9,7 @@ function Projects({ projects }) {
         setShowMore(!showMore);
     };
     const projectsContainerStyle = {
-        height: showMore ? '340vh' : 'auto',
+        height: showMore ? '250vh' : 'auto',
     };
     return (
         <div className="projects" style={projectsContainerStyle}>

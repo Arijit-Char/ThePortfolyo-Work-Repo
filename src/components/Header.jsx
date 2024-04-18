@@ -54,10 +54,10 @@ export default function Header({ about }) {
                 <div
                     style={{
                         fontWeight: 'bold',
-                        fontSize: 20,
+                        fontSize: 25,
                         marginLeft: 20,
                         flex: 1,
-                        color: '#ffffff',
+                        color: '#ff5a00',
                     }}
                 >
                     {`Hello! I'm ${about?.name}`}
@@ -65,7 +65,7 @@ export default function Header({ about }) {
                 </div>
 
                 <div style={{ color: '#ffffff', cursor: 'pointer' }} onClick={toggleMenu}>
-                    <Divide color="black" size={30} />
+                    <Divide label="Show menu" color="black" size={40} />
                 </div>
             </AnimatedBlock>
 

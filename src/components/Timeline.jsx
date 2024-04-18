@@ -35,7 +35,7 @@ const Timeline = ({ education, setObserver, callback }) => {
                             {index + 1}
                         </div>
                         <div className="message">
-                            <p>{messages[index]}</p>
+                            <p style={{fontSize:"1rem"}}>{messages[index]}</p>
                             <p>{item.summary}</p>
                             <p>{`Location: ${item.jobLocation}`}</p>
                             <p>{`Duration: ${item.startDate} to ${item.endDate}`}</p>
