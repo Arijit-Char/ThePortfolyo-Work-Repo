@@ -64,25 +64,33 @@ ul {
 
 li {
     list-style: none;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     display: flex;
     align-items: center;
     cursor: pointer;
+    color: wheat;
 }
 
 .icon-placeholder {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    flex: 40px 0;
+    flex: 50px 0;
     margin-right: 20px;
+    >svg{
+        width: 98%;
+        height: 95%;
+ 
+    color: wheat;
+    }
 }
 
 .text-placeholder {
     border-radius: 5px;
     width: 200px;
-    height: 20px;
+    height: 50px;
     flex: 1;
+    padding: 10px;
 }
 
 .refresh {
