@@ -39,7 +39,7 @@ const Timeline = ({ education, setObserver, callback }) => {
                             <p>{item.summary}</p>
                             <p>{`Location: ${item.jobLocation}`}</p>
                             <p>{`Duration: ${item.startDate} to ${item.endDate}`}</p>
-                            <ul>
+                            <ul style={{position:"unset"}}>
                                 {item.bulletPoints.map((point, idx) => (
                                     <li key={idx}>{point}</li>
                                 ))}

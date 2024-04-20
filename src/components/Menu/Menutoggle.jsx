@@ -5,7 +5,7 @@ import './menu.scss';
 const Path = (props) => <motion.path fill="transparent" strokeWidth="3" stroke="hsl(0, 0%, 18%)" strokeLinecap="round" {...props} />;
 
 export const MenuToggle = ({ toggle }) => (
-    <button onClick={toggle}>
+    <button onClick={toggle} style={{position:"absolute",top:"19px",left:"245px",width:"50px",height:"50px",borderRadius:"50%"}}>
         <svg width="23" height="23" viewBox="0 0 23 23">
             <Path
                 variants={{
