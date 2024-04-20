@@ -1,12 +1,38 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScroll, useAnimatedValue, AnimatedBlock, interpolate } from 'react-ui-animate';
-import { IoMdMenu } from 'react-icons/io';
-import { Divide, Divide as Hamburger } from 'hamburger-react';
 import '../App.scss';
+import '../components/Menu/menu.scss';
+import { useRef } from 'react';
+import { useCycle } from 'framer-motion';
+import { Navigation } from './Menu/Navigation';
+import { MenuToggle } from './Menu/Menutoggle';
+import { useDimensions } from './Menu/use-dimention';
+
+const sidebar = {
+    open: (width = 400) => ({
+        clipPath: `circle(${width * 2 + 400}px at calc(100% - 40px) 40px)`,
+        transition: {
+            type: 'spring',
+            stiffness: 20,
+            restDelta: 2,
+        },
+    }),
+    closed: {
+        clipPath: 'circle(30px at calc(100% - 40px) 40px)',
+        transition: {
+            delay: 0.5,
+            type: 'spring',
+            stiffness: 400,
+            damping: 40,
+        },
+    },
+};
 
 export default function Header({ about }) {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isOpen, toggleOpen] = useCycle(false, true);
+    const containerRef = useRef(null);
+    const { height } = useDimensions(containerRef);
 
     const y = useAnimatedValue(0, { immediate: true });
     useScroll(({ scrollY }) => {
@@ -21,10 +47,6 @@ export default function Header({ about }) {
         extrapolate: 'clamp',
     });
 
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
-
     return (
         <div className="header">
             <AnimatedBlock
@@ -37,7 +59,7 @@ export default function Header({ about }) {
                     position: 'fixed',
                     width: '100%',
                     boxShadow,
-                    zIndex: 1000,
+                    zIndex: 10,
                 }}
             >
                 <AnimatedBlock
@@ -63,55 +85,12 @@ export default function Header({ about }) {
                     {`Hello! I'm ${about?.name}`}
                     <p style={{ fontSize: '0.7rem', fontWeight: '400' }}>{about.quote}</p>
                 </div>
-
-                <div style={{ color: '#ffffff', cursor: 'pointer' }} onClick={toggleMenu}>
-                    <Divide label="Show menu" color="black" size={40} />
-                </div>
+                <motion.nav initial={false} animate={isOpen ? 'open' : 'closed'} custom={height} ref={containerRef}>
+                    <motion.div className="background" variants={sidebar} />
+                    <Navigation />
+                    <MenuToggle toggle={() => toggleOpen()} />
+                </motion.nav>
             </AnimatedBlock>
-
-            <AnimatePresence>
-                {isMenuOpen && (
-                    <motion.div className="menu" initial={{ x: '100%', opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: '100%', opacity: 0 }}>
-                        <ul style={{ paddingTop: '5rem' }}>
-                            <li onClick={toggleMenu}>
-                                <a href="#hero" spy={true} smooth={true}>
-                                    Home
-                                </a>
-                            </li>
-                            <li onClick={toggleMenu}>
-                                <a href="#projects" spy={true} smooth={true}>
-                                    Projects
-                                </a>
-                            </li>
-                            <li onClick={toggleMenu}>
-                                <a href="#services" spy={true} smooth={true}>
-                                    Services
-                                </a>
-                            </li>
-                            <li onClick={toggleMenu}>
-                                <a href="#skills" spy={true} smooth={true}>
-                                    Skills
-                                </a>
-                            </li>
-                            <li onClick={toggleMenu}>
-                                <a href="#timeline" spy={true} smooth={true}>
-                                    Education & Experience
-                                </a>
-                            </li>
-                            <li onClick={toggleMenu}>
-                                <a href="#testimonial" spy={true} smooth={true}>
-                                    Testimonial
-                                </a>
-                            </li>
-                            <li onClick={toggleMenu}>
-                                <a href="#contact" spy={true} smooth={true}>
-                                    Contact Me
-                                </a>
-                            </li>
-                        </ul>
-                    </motion.div>
-                )}
-            </AnimatePresence>
         </div>
     );
 }
